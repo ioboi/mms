@@ -1,0 +1,78 @@
+% !TeX root = ./Serie03-JoelZuber-YannikDaellenbach.tex
+% Benutzen Sie Normans Interaktionsmodell um folgende Handlung zu analysieren: 
+% Ein Benutzer möchte eine Datei auf dem Schreibtisch seines Computers umbenennen 
+% (z.B. von Document.txt zu Pruefungsfragen.txt). 
+% Erläutern Sie anhand dieses Beispiels, die Begriffe Gulf of Execution und Gulf of Evalation.
+\subsection*{Iteration 1}
+\subsubsection*{Ziel}
+Der Benutzer möchte, dass anstelle des existierenden Dateinamens das Textfeld zum Umbenennen der Datei angezeigt wird.
+\subsubsection*{Planen}
+Dazu muss er die Datei zweimal antippen, mit einer kurzen Wartezeit zwischen den beiden Klicks, damit sie nicht als schneller Doppelklick interpretiert werden.
+\subsubsection*{Spezifizieren}
+Zunächst muss er den Cursor über den Dateinamen bewegen, dann einmal die linke Maustaste betätigen, kurz warten und nochmals die linke Maustaste betätigen.
+\subsubsection*{Ausführen}
+Der Benutzer bewegt den Cursor und führt den langsamen Doppelklick aus.
+\subsubsection*{Wahrnehmen}
+Um den Dateinamen erscheint ein dünner Rahmen.
+\subsubsection*{Interpretieren}
+Der Benutzer folgert, dass sich das Textfeld geöffnet hat.
+\subsubsection*{Vergleichen}
+Dies ist das Textfeld, das er öffnen wollte.
+
+\subsection*{Iteration 2}
+\subsubsection*{Ziel}
+Der Benutzer möchte alle Zeichen links vom Punkt (ohne Dateiende) markieren.
+\subsubsection*{Planen}
+Dies möchte er durch einen schnellen Doppelklick erreichen.
+\subsubsection*{Spezifizieren}
+Er will den Cursor auf die linke Seite des Punkts bewegen und zweimal schnell die linke Maustaste bedienen.
+\subsubsection*{Ausführen}
+Der Benutzer bewegt den Cursor und führt einen Doppelklick aus.
+\subsubsection*{Wahrnehmen}
+Der ausgewählte Teil des Dateinamens wird blau markiert.
+\subsubsection*{Interpretieren}
+Der Benutzer folgert, dass die markierte Zeichenfolge jetzt markiert ist.
+\subsubsection*{Vergleichen}
+Dies ist der Teil des Dateinamens, den er bearbeiten wollte.
+
+\subsection*{Iteration 3}
+\subsubsection*{Ziel}
+Der Benutzer möchte den markierten Text durch neuen Text ersetzen.
+\subsubsection*{Planen}
+Dazu will er die Zeichenfolge mithilfe einer Tastatur eingeben.
+\subsubsection*{Spezifizieren}
+Er muss ein Zeichen nach dem anderen eingeben, indem er die jeweils entsprechende Taste auf der Tastatur drückt.
+\subsubsection*{Ausführen}
+Der Benutzer tippt auf der Tastatur herum.
+\subsubsection*{Wahrnehmen}
+Die eingegebenen Zeichen erscheinen nach jedem Tastenanschlag im Textfeld. Dahinter ist ein blinkender Strich.
+\subsubsection*{Interpretieren}
+Der Benutzer folgert, dass die neue Zeichenfolge registriert wurde. Ausserdem folgert er aus dem blinkenden Strich, dass die Bearbeitung des Dateinamens noch aktiv ist.
+\subsubsection*{Vergleichen}
+Der angezeigte Text entspricht dem vorgesehenen Dateinamen.
+
+\subsection*{Iteration 4}
+\subsubsection*{Ziel}
+Der Benutzer möchte den Vorgang abschliessen und die Änderungen speichern.
+\subsubsection*{Planen}
+Dies möchte er durch Benutzung der \enquote{Enter}-Taste erreichen.
+\subsubsection*{Spezifizieren}
+Dazu muss er nur die \enquote{Enter}-Taste drücken.
+\subsubsection*{Ausführen}
+Der Benutzer drückt \enquote{Enter}.
+\subsubsection*{Wahrnehmen}
+Das Textfeld verschwindet und der neue Dateiname wird angezeigt. Zur Verstärkung des Feedbacks wird die Datei dabei markiert, was der Benutzer sofort wahrnimmt.
+\subsubsection*{Interpretieren}
+Die Änderung der Farbe der Dateivorschau weist den Benutzer unmittelbar darauf hin, dass etwas passiert ist. Er nimmt an, dass der Dateiname im System geändert wurde.
+\subsubsection*{Vergleichen}
+Der angezeigte Dateiname entspricht jenem, der für die Datei vorgesehen war.
+
+\subsection*{Gulf of Execution}
+Der grösste \textit{Gulf of Execution} in diesem Beispiel wird in Iteration 1 überwunden. 
+Dank seiner Erfahrungen mit dem benutzten Betriebssystem in der Vergangenheit kennt der Benutzer eine schnelle und komfortable Möglichkeit, 
+das Bearbeitungs-Textfeld zur Umbenennung von Dateien zu öffnen.
+
+\subsection*{Gulf of Evaluation}
+Ein grosser \textit{Gulf of Evaluation} ist in Iteration 4 enthalten. 
+Wie kann sich der Benutzer sicher sein, dass sich im System wirklich etwas geändert hat? 
+Dies wird durch ein starkes Feedback beim Betätigen der \enquote{Enter}-Taste überwunden und auch wieder von den Erfahrungen des Benutzers.
