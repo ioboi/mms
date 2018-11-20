@@ -1,0 +1,16 @@
+% !TeX root = ./Serie04-JoelZuber-YannikDaellenbach.tex
+\begin{exercise}
+  Betrachten Sie die folgende Schnittstelle zur Eingabe der Medikamentendosis in einem automatischen Transfusionssystem.
+  Der Benutzer wollte eigentlich eine Dosis von 1372 eingeben. 
+  Erörtern Sie kurz, 
+  weshalb diese Fehleingabe nicht wirklich menschliches Versagen ist. 
+  Wie könnten Sie die Schnittstelle verbessern, damit solche Fehler verhindert werden könnten?
+  \\\\
+\end{exercise}
+Derartige Ausrutscher liegen in der Natur des Menschen und es ist die Aufgabe des Designers, 
+ein System zu schaffen, welches mit diesen angemessen umgeht.
+Die Schnittstelle kann verbessert werden, 
+indem nach je drei Zahlen ein Abstand oder Strich angezeigt wird, z.B. \enquote{13 672} oder \enquote{13'672} statt \enquote{13672}.
+So wäre die Interpretation der Zahl leicher.\\\\
+Ausserdem: Wenn 1372 die empfohlene Menge des Medikaments ist, ist 13672 (fast zehnmal so viel) wahrscheinlich eine viel zu hohe Zahl.
+Würde der Computer für gewisse Mengen Grenzwerte kennen, so könnte er den Arzt/die Ärztin warnen.

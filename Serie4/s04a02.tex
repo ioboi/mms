@@ -1,0 +1,184 @@
+% !TeX root = ./Serie04-JoelZuber-YannikDaellenbach.tex
+\begin{exercise}
+  Einige der besprochenen Ausrutscher (Siehe Kapitel 5.4 im Skript, Aufzählung) können als Muster in einem State Transition Network (STN) sichtbar gemacht werden. 
+  Skizzieren Sie mindestens drei Muster in einem STN, 
+  die auf potentielles Auftreten eines Ausrutschers hinweisen können.
+\end{exercise}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+    % defaults
+    \tikzset{
+      node distance=2cm,
+      initial text=$ $
+    }
+
+    \node[state, initial](q1){};
+    \node[state, right of=q1](q2){};
+    \node[state, right of=q2](q3){};
+    \node[state, right of=q3](q4){};
+    \node[state, right of=q4](q5){};
+    \node[state, above right of=q5](a){};
+    \node[state, below right of=q5](b){};
+
+    \draw [->] (q1) edge[above] node{} (q2);
+    \draw [->] (q2) edge[above] node{} (q3);
+    \draw [->] (q3) edge[above] node{} (q4);
+    \draw [->] (q4) edge[above] node{} (q5);
+    \draw [->] (q5) edge[above] node{} (a);
+    \draw [->] (q5) edge[above] node{} (b);
+  \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+
+  \begin{tikzpicture}
+
+    % defaults
+    \tikzset{
+      node distance=2cm,
+      initial text=$ $
+    }
+
+    % stm mode 1
+    \node[state, accepting](s1){};
+    \node[state, right of=s1](s2){};
+    \node[state, below right of=s1](s3){};
+    \node[state, right of=s3](s4){};
+    \node[state, below left of=s3](s5){};
+    \node[state, right of=s5](s6){};
+
+    % s1 edges
+    \draw [->] (s1) edge node{} (s2);
+    \draw [->] (s1) edge node{} (s3);
+    
+    % s2 edges
+    \draw [->] (s2) edge node{} (s4);
+    \draw [->] (s2) edge[bend right] node{} (s3);
+
+    % s3 edges
+    \draw [->] (s3) edge[bend right] node{} (s2);
+    \draw [->] (s3) edge node{} (s4);
+    \draw [->] (s3) edge node{} (s6);
+
+    % s4 edges
+    \draw [->] (s4) edge[below right] node{click} (s6);
+
+    % s5 edges
+    \draw [->] (s5) edge node{} (s3);
+
+    % s6 edges
+    \draw [->] (s6) edge node {} (s5);
+
+    % mode 1 box
+    \node [draw=black, fit= (s1) (s4) (s6)] (mode1) {};
+    \node [above] at (mode1.north) {Mode 1}; 
+
+    % stm mode 2
+    \node[state, accepting, xshift=6cm] (t1){};
+    \node[state, right of=t1](t2){};
+    \node[state, below right of=t2](t3){};
+    \node[state, left of=t3](t4){};
+    \node[state, below left of=t4](t5){};
+    \node[state, right of=t5](t6){};
+    \node[state, accepting, right of=t6](t7){};
+
+    % t1 edges
+    \draw [->] (t1) edge node{} (t2);
+    \draw [->] (t1) edge node{} (t4);
+
+    % t2 edges
+    \draw [->] (t2) edge node{} (t3);
+    \draw [->] (t2) edge[bend right] node{} (t4);
+
+    % t3 edges
+    \draw [->] (t3) edge[right] node{click} (t7);
+
+    % t4 edges
+    \draw [->] (t4) edge[bend right] node{} (t2);
+    \draw [->] (t4) edge node{} (t3);
+    \draw [->] (t4) edge node{} (t6);
+
+    % t5 edges
+    \draw [->] (t5) edge node{} (t4);
+
+    % t6 edges
+    \draw [->] (t6) edge node{} (t5);
+
+    \node [draw=black, fit= (t1) (t7)] (mode2){};
+    \node [above] at (mode2.north) {Mode 2};
+
+    \draw [->] ([yshift=0.5cm]mode1.east) to node[above]{change} ([yshift=0.5cm]mode2.west);
+    \draw [->] ([yshift=-0.5cm]mode2.west) to node[below]{change} ([yshift=-0.5cm]mode1.east);
+
+    % start arrow
+    \node[left of=mode1, xshift=-1cm](start){};
+    \draw [->] (start) to (mode1.west);
+
+    \node[right of=mode2, xshift=1cm](end){};
+    \draw [->] (mode2.east) to (end);
+
+  \end{tikzpicture}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+
+    % defaults
+    \tikzset{
+      node distance=2cm,
+      initial text=$ $
+    }
+
+    \node[state, accepting](1){};
+    \node[state, right of=1](2){};
+    \node[state, right of=2](3){};
+    \node[state, right of=3](4){};
+    \node[state, right of=4](5){};
+
+    \node[state, below of=5](6){};
+    \node[state, left of=6](7){};
+    \node[state, left of=7](8){};
+    \node[state, left of=8](9){};
+    \node[state, left of=9](10){};
+
+    \node[state, below of=10](11){};
+    \node[state, right of=11](12){};
+    \node[state, right of=12](13){};
+    \node[state, right of=13](14){};
+    \node[state, accepting, right of=14](15){};
+
+    %edges
+    \draw[->](1) edge (2);
+    \draw[->](2) edge (3);
+    \draw[->](3) edge (4);
+    \draw[->](4) edge (5);
+    \draw[->](5) edge (6);
+    \draw[->](6) edge (7);
+    \draw[->](7) edge (8);
+    \draw[->](8) edge (9);
+    \draw[->](9) edge (10);
+    \draw[->](10) edge (11);
+    \draw[->](11) edge (12);
+    \draw[->](12) edge (13);
+    \draw[->](13) edge (14);
+    \draw[->](14) edge (15);
+
+    \node[draw=black, fit=(1) (15)](process){};
+    \node [above] at (process.north) {Process};
+
+    \node[left of=10](start){};
+    \draw[->] (start) to (process);
+
+    \node[right of=process, xshift=5cm, yshift=1cm](esc){};
+    \draw[->] ([yshift=1cm]process.east) to node[above]{ESC}(esc);
+
+    \node[right of=process, xshift=5cm, yshift=-1cm](end){};
+    \draw[->] ([yshift=-1cm]process.east) to node[above]{FINISH}(end);
+    
+  \end{tikzpicture}
+\end{figure}
